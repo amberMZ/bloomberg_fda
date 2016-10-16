@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @recall.product %>
+</p>
+
+<p>
+  <strong>Reason:</strong>
+  <%= @recall.reason %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @recall.level %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @recall.region %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @recall.contact %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @recall.date %>
+</p>
+
+<%= link_to 'Edit', edit_recall_path(@recall) %> |
+<%= link_to 'Back', recalls_path %>
