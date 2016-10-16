@@ -10,6 +10,15 @@ class ImagesController < ApplicationController
   # GET /images/1
   # GET /images/1.json
   def show
+    
+    @image = Image.find_by_id(params[:id])
+       
+    
+    respond_to do |format|
+      format.html {  }
+      format.json {  render json: @image }
+    end
+    
   end
 
   # GET /images/new
@@ -33,9 +42,9 @@ class ImagesController < ApplicationController
 			end
 		end
 		
-      respond_to do |format|
-        format.html { redirect_to :controller => 'images', :action => 'index' }
-        format.html { redirect_to :controller => 'images', :action => 'index' }
+    respond_to do |format|
+      format.html { redirect_to :controller => 'images', :action => 'index' }
+      format.html { redirect_to :controller => 'images', :action => 'index' }
     end
     
   end
