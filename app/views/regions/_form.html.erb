@@ -10,16 +10,20 @@
       </ul>
     </div>
   <% end %>
+  
+  <label for="category">Display Name</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :display_name, class: "form-control", placeholder: "Le Mars, lowa" %>
+  </div>
+  
 
-  <div class="field">
-    <%= f.label :display_name %><br>
-    <%= f.text_field :display_name %>
+  <label for="filename">Image id</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :image_id, class: "form-control", placeholder: "1" %>
   </div>
-  <div class="field">
-    <%= f.label :image_id %><br>
-    <%= f.text_field :image_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <%= f.submit 'Confirm', :class => 'btn btn-primary spacer' %>
+  
 <% end %>

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "display_name": "Seattle, WA",
+    "image_id": 1
+  },
+  {
+    "id": 2,
+    "display_name": "New York, NY",
+    "image_id": 2
+  }
+ ]

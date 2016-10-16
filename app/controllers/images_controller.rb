@@ -44,7 +44,6 @@ class ImagesController < ApplicationController
 		
     respond_to do |format|
       format.html { redirect_to :controller => 'images', :action => 'index' }
-      format.html { redirect_to :controller => 'images', :action => 'index' }
     end
     
   end

@@ -10,11 +10,31 @@ class RegionsController < ApplicationController
   # GET /regions/1
   # GET /regions/1.json
   def show
+    @region = Region.find_by_id(params[:id])
+    @region_image = Image.find_by_id(@region.image_id)
   end
 
   # GET /regions/new
   def new
     @region = Region.new
+  end
+  
+  # GET /regions/upload
+  # for batch upload regions through json.
+  def upload
+    data = params[:json_data]
+		regions = JSON.parse(data)
+		regions.each do |region|
+			@region = Region.find_by_id(region['id'])
+			if @region.nil?
+				@region = Region.create(:id => region['id'], :display_name => region['display_name'], :image_id => region['image_id'])
+			end
+		end
+		
+		respond_to do |format|
+      format.html { redirect_to :controller => 'regions', :action => 'index' }
+    end
+		
   end
 
   # GET /regions/1/edit

@@ -13,6 +13,11 @@ Rails.application.routes.draw do
     get 'images/*path' => redirect('images')
   end
   
+  controller :regions do
+    post 'regions/upload' => :upload
+    get 'regions/*path' => redirect('regions')
+  end
+  
   
   
   # The priority is based upon order of creation: first created -> highest priority.
