@@ -24,4 +24,5 @@ The contact info provided by the user. Could be email or phone.
 * ER diagram
 
 A rough ER diagram is shown below:
+Blue attributes are obtained from the FDA site and yellow attributes are from the mobile front end. The green attributes can be from both sources.
 ![alt text](https://github.com/amberMZ/bloomberg_fda/blob/master/document/ERdiagram.png "ER diagram")
