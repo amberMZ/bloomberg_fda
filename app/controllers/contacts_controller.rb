@@ -20,6 +20,24 @@ class ContactsController < ApplicationController
   # GET /contacts/1/edit
   def edit
   end
+  
+  # GET /contacts/upload
+  # for batch upload contacts through json.
+  def upload
+    data = params[:json_data]
+		contacts = JSON.parse(data)
+		contacts.each do |contact|
+			@contact = Contact.find_by_id(contact['id'])
+			if @contact.nil?
+				@contact = Contact.create(:id => contact['id'], :email => contact['email'], :phone => contact['phone'])
+			end
+		end
+		
+    respond_to do |format|
+      format.html { redirect_to :controller => 'contacts', :action => 'index' }
+    end
+    
+  end
 
   # POST /contacts
   # POST /contacts.json

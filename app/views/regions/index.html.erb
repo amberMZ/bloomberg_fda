@@ -21,7 +21,7 @@
             <tr>
               <td><%= region.id %></td>
               <td><%= region.display_name %></td>
-              <td><%= link_to Image.find_by_id(region.image_id).filename, Image.find_by_id(region.image_id) %></td>
+              <td> <img style="max-width:128px;max-height:128px;", src=<%= asset_path(Image.find_by_id(region.image_id).filename) %>> </td>
               <td><%= link_to 'Show', region %></td>
               <td><%= link_to 'Edit', edit_region_path(region) %></td>
               <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>

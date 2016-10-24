@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20161013041242) do
 
   create_table "levels", force: :cascade do |t|
     t.string   "display_name", limit: 255
-    t.string   "description",  limit: 255
+    t.string   "description",  limit: 512
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

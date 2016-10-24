@@ -20,6 +20,32 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
   end
+  
+  # GET /products/upload
+  # for batch upload products through json.
+  def upload
+    data = params[:json_data]
+		products = JSON.parse(data)
+		products.each do |product|
+			@product = Product.find_by_id(product['id'])
+			if @product.nil?
+			  if params.include?(:image_id)
+			    @product = Product.create(:id => product['id'], :name => product['name'], :upc_code => product['upc_code'], :product_code => product['product_code'], :sell_by_date => product['sell_by_date'], :image_id => product['image_id'])
+			  else
+			    @image = Image.find_by_filename(product['image_filename'])
+			    if @image.nil?
+			      @image = Image.create(:description => product['name'], :filename => product['image_filename'], :category => 3)
+			    end
+			    	@product = Product.create(:id => product['id'], :name => product['name'], :upc_code => product['upc_code'], :product_code => product['product_code'], :sell_by_date => product['sell_by_date'], :image_id => @image.id)
+			  end
+			end
+		end
+		
+    respond_to do |format|
+      format.html { redirect_to :controller => 'products', :action => 'index' }
+    end
+    
+  end
 
   # POST /products
   # POST /products.json
@@ -69,6 +95,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :upc_code, :product_code, :sell_by_date, :image_id_id)
+      params.require(:product).permit(:name, :upc_code, :product_code, :sell_by_date, :image_id)
     end
 end

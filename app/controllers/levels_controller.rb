@@ -20,6 +20,24 @@ class LevelsController < ApplicationController
   # GET /levels/1/edit
   def edit
   end
+  
+  # GET /levels/upload
+  # for batch upload levels through json.
+  def upload
+    data = params[:json_data]
+		levels = JSON.parse(data)
+		levels.each do |level|
+			@level = Level.find_by_id(level['id'])
+			if @level.nil?
+				@level = Level.create(:id => level['id'], :display_name => level['display_name'], :description => level['description'])
+			end
+		end
+		
+    respond_to do |format|
+      format.html { redirect_to :controller => 'levels', :action => 'index' }
+    end
+    
+  end
 
   # POST /levels
   # POST /levels.json

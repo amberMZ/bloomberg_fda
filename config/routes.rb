@@ -6,11 +6,15 @@ Rails.application.routes.draw do
   resources :users
   resources :purchases
   resources :products
-  resources :recalls
   
   controller :images do
     post 'images/upload' => :upload
     get 'images/*path' => redirect('images')
+  end
+  
+  controller :products do
+    post 'products/upload' => :upload
+    get 'products/*path' => redirect('products')
   end
   
   controller :regions do
@@ -18,7 +22,26 @@ Rails.application.routes.draw do
     get 'regions/*path' => redirect('regions')
   end
   
+  controller :contacts do
+    post 'contacts/upload' => :upload
+    get 'contacts/*path' => redirect('contacts')
+  end
   
+  controller :levels do
+    post 'levels/upload' => :upload
+    get 'levels/*path' => redirect('levels')
+  end
+  
+  controller :recalls do
+      get 'recalls/search' => :search
+      post 'recalls/upload' => :upload
+  end
+  resources :recalls do
+    member do
+      get 'recalls/*path' => redirect('recalls')
+    end
+  end
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -10,28 +10,36 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  
+  <label for="name">Name</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :upc_code %><br>
-    <%= f.text_field :upc_code %>
+  
+  <label for="upc_code">UPC Code</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :upc_code, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :product_code %><br>
-    <%= f.text_field :product_code %>
+  
+  <label for="product_code">Product Code</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :product_code, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :sell_by_date %><br>
-    <%= f.datetime_select :sell_by_date %>
+  
+  <label for="sell_by_date">Sell by Date</label>
+  <div class="input-group">
+    <%= f.datetime_select :sell_by_date, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :image_id_id %><br>
-    <%= f.text_field :image_id_id %>
+  
+  <label for="image_id">Image id</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :image_id, class: "form-control" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <%= f.submit 'Confirm', :class => 'btn btn-primary spacer' %>
+  
 <% end %>

@@ -16,6 +16,40 @@ class RecallsController < ApplicationController
   def new
     @recall = Recall.new
   end
+  
+  # GET /recalls/upload
+  # for batch upload recalls through json.
+  def upload
+    data = params[:json_data]
+		recalls = JSON.parse(data)
+		recalls.each do |recall|
+			@recall = Recall.find_by_id(recall['id'])
+			if @recall.nil?
+				@recall = Recall.create(:id => recall['id'], :product_id => recall['product_id'], :reason => recall['reason'], :level_id => recall['level_id'], :region_id => recall['region_id'], :contact_id => recall['contact_id'], :date => recall['date'])
+			end
+		end
+		
+    respond_to do |format|
+      format.html { redirect_to :controller => 'recalls', :action => 'index' }
+    end
+    
+  end
+  
+  # GET /recalls/search?upc_code=...
+  def search
+    if params.include?(:upc_code)
+      @upc_code = params[:upc_code]
+      @recalls = Recall.recalls_by_upc_code(params[:upc_code])
+      @json = { :recalls => @recalls.as_json }
+    else
+      @json = { :recalls => [] }
+    end
+    
+    respond_to do |format|
+        format.html { render :index, status: :ok }
+        format.json { render json:  @json }
+    end
+  end
 
   # GET /recalls/1/edit
   def edit
