@@ -2,10 +2,15 @@
 Here are the main indentities of the databas.
 
 * product(name, upc_code?, product_code?, sell_by_date?, image?)
+
 A `Product` may be created when the user makes a new pruchase containing a product or FDA issues a new recall on a product that has not been included in our database. 
+
 * purchase(product(s), region_id, user_id, date)
+
 A `Purchase` can contain a list of `Product`s and our frontend will record the time and location of the purchase then pushes that information along with the list of `Product`s
+
 * recall(product_id, reason, level_id, region_id, contact_id, date)
+A `Recall` is based on web scrapping the [FDA immediate release](http://www.fda.gov/Safety/Recalls/ArchiveRecalls/2016/default.html) page. We are currently using a Ruby gem [Nokogiri](http://www.nokogiri.org/) for searching and parsing HTML. We are meeting our bottleneck because of lacking NLP technology.  
 * users(contact_id)
 
 Their ER diagram is shown below:
