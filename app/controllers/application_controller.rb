@@ -16,7 +16,10 @@ class ApplicationController < ActionController::Base
   after_filter :set_cors
   def set_cors
     headers['Access-Control-Allow-Origin'] = 'https://bruce-yu-xi.github.io'
+    # headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Content-Type'
+
   end
   
 end
