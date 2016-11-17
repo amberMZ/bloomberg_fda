@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Allow-Origin'] = 'https://bruce-yu-xi.github.io'
     # headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    headers['Access-Control-Allow-Headers'] = '*'
 
   end
   
