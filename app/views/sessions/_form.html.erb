@@ -1,0 +1,17 @@
+<%= form_tag '/login' do %>
+
+<label for="username">Username</label>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon3">@</span>
+  <%= text_field_tag :username %>
+</div>
+
+<label for="password">Password</label>
+<div class="input-group">
+  <span class="input-group-addon" id="basic-addon3">@</span>
+  <%= password_field_tag :password %>
+</div>
+
+<%= submit_tag 'Confirm', :class => 'btn btn-primary spacer' %>
+
+<% end %>

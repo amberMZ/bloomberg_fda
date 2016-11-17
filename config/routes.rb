@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+
   root 'products#index'
   
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+  
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
   resources :contacts
   resources :regions
   resources :levels
   resources :images
-  resources :users
   resources :purchases
   resources :products
   

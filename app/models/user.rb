@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
-  has_one :contact
-  has_many :purchases
+    has_secure_password
+    
+    has_many :purchases
+  
 end

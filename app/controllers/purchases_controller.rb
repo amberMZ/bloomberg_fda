@@ -1,6 +1,8 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authorize
+
   # GET /purchases
   # GET /purchases.json
   def index
