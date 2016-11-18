@@ -11,18 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :region_id %><br>
-    <%= f.text_field :region_id %>
+  <label for="region_id">Region_id</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :region_id, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+
+  <label for="region_id">user_id</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :user_id, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+
+  <label for="region_id">date</label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">@</span>
+    <%= f.text_field :date, class: "form-control" %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
