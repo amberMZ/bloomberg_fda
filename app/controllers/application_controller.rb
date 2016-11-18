@@ -15,10 +15,14 @@ class ApplicationController < ActionController::Base
   # rushabh suggested for cross domain problem
   after_filter :set_cors
   def set_cors
-    headers['Access-Control-Allow-Origin'] = 'https://bruce-yu-xi.github.io'
-    # headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Request-Method'] = '*'
-    headers['Access-Control-Allow-Headers'] = '*'
+    # headers['Access-Control-Allow-Origin'] = 'https://bruce-yu-xi.github.io'
+    # headers['Access-Control-Request-Method'] = '*'
+    # headers['Access-Control-Allow-Headers'] = '*'
+
+headers['Access-Control-Allow-Origin'] = '*'
+headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+headers['Access-Control-Request-Method'] = '*'
+headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization
 
   end
   
